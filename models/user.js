@@ -23,6 +23,10 @@ const userSchema = new Schema(
               required: true,
               min: 6,
             },
+            name: {
+              type: String, 
+              required: true
+            },
             profilePicture: {
               type: String,
               default: "",
