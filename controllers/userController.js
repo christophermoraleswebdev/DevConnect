@@ -27,17 +27,18 @@ const findUserById = async (req, res) => {
   }
 }
 
-// Find User By Name 
 const findUserByName = async (req, res) => {
   try {
-      const user = await User.find({user: req.params.name})
-      if(!brand) throw Error ('Brand not found')
-      res.status(200).json(brand)
+    const name = req.params.name.replace(' ', '%20')
+    const user = await User.find({ name: req.params.name })
+    if (!user) throw Error('User not found')
+    res.status(200).json(user)
   } catch (e) {
-      console.log(e)
-      res.status(500).send
+    console.log(e)
+    res.status(500).send('User not found')
   }
 }
+
 
 // Create New User
 const createUser = async (req, res) => {
