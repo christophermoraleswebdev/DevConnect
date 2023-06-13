@@ -15,9 +15,21 @@ Router.put('/:id', controller.updateUser)
 
 
 Router.post('/', controller.createUser)
+// Create User Request Payload
+// {
+//   "username": "newuser",
+//   "email": "newuser@example.com",
+//   "password": "password123",
+//   "name": "New User",   
+//   "profilePicture": "profile.jpg",
+//   "isAdmin": false,
+//   "description": "New user description",
+//   "city": "New York"
+// }
 
 
-Router.put('/:id', controller.deleteUser)
+// http://localhost:3001/api/user/6487a0fc20815a6e21eb5bc4
+Router.delete('/:id', controller.deleteUser)
 
 
 Router.get('/login/', controller.loginController)

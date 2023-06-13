@@ -44,6 +44,7 @@ const findUserByName = async (req, res) => {
 const createUser = async (req, res) => {
   try {
     const { username, email, password, profilePicture, isAdmin, description, city } = req.body
+    const name = req.body.name
 
     // Check If Username or Email Exist
     const existingUser = await User.findOne({ $or: [{ username }, { email }] })
@@ -109,21 +110,27 @@ const updateUser = async (req, res) => {
 // Delete User 
 const deleteUser = async (req, res) => {
   try {
-    const { userId } = req.params
+    const { id } = req.params;
+
+    console.log('User ID:', id);
 
     // Delete By Id
-    const deletedUser = await User.findByIdAndRemove(userId)
+    const deletedUser = await User.findByIdAndRemove(id);
+
+    console.log('Deleted User:', deletedUser);
 
     if (!deletedUser) {
-      return res.status(404).json({ message: 'User not found' })
+      return res.status(404).json({ message: 'User not found' });
     }
 
-    res.status(200).json({ message: 'User deleted successfully' })
+    res.status(200).json({ message: 'User deleted successfully' });
   } catch (error) {
     // Handle Errors
-    res.status(500).json({ message: 'Internal server error' })
+    console.log('Error:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
-}
+};
+
 
 // Login 
 const loginController = async (req, res) => {
