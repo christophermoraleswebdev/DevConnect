@@ -5,7 +5,7 @@ const postRouter = require('./postRouter')
 
 
 Router.use('/user', userRouter)
-// Router.use('/post', postRouter)
+Router.use('/post', postRouter)
 
 
 
