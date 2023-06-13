@@ -9,23 +9,75 @@
       <script src="script.js" defer></script>
       <title>DevConnect</title>
 </head>
+<nav class="navbar">
+      <div class="navbar-logo">
+            <h1>DevConnect</h1>
+      </div>
+      <ul class="navbar-menu">
+            <li class="navbar-item">
+            <a href="#">Home</a>
+            </li>
+            <li class="navbar-item">
+            <a href="#">Profile</a>
+            </li>
+            <li class="navbar-item">
+            <a href="#">Friends</a>
+            </li>
+            <li class="navbar-item">
+            <a href="#" id="signOutButton">Sign-out</a>
+            </li>
+            <!-- Add more menu items as needed -->
+      </ul>
+</nav>
+    
 <body>
-      <div class="nav-container">
-            <div class="nav-item">
-                  <img src="./img/logo1.png" alt="">
+      <div class="container">
+            <div class="sidebar">
+                  <div class="profile">
+                        <img src="./img/aboutMe.jpg" alt="Profile Image" class="profile-image">
+                        <span class="profile-name">Update User Profile</span>
+                  </div>
+                  <div class="find-friends">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #3b5998;"></i>
+                        <input type="text" placeholder="Find Friends" class="search-bar">
+                  </div>
+                  <div class="post">
+                        <span>Make a Post:</span>
+                        <textarea name="post" id="" cols="30" rows="10"></textarea>
+                  </div>
+                  <div class="buttons">
+                        <button class="add-image-button">
+                            <i class="fa-regular fa-image"></i>
+                            <span class="button-text">Add Image</span>
+                        </button>
+                        <button class="post-button">Post</button>
+                  </div>                    
             </div>
-            <div class="nav-item title">DevConnect</div>
-            <div class="nav-item sign-out">Sign-out</div>
+            <div class="feed">
+                  <h1 class="feed-title">Posts/Feed</h1>
+                  <div class="post-item">
+                        <div class="post-header">
+                              <img src="./img/aboutMe.jpg" alt="User Profile Image" class="user-profile-image">
+                              <span class="username">Username</span>
+                              <span class="timestamp">2 hours ago</span>
+                        </div>
+                        <div class="post-content">
+                              <img src="https://images.unsplash.com/photo-1508558936510-0af1e3cccbab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Post Image" class="post-image">
+                              <p class="post-description">Today I am victorious! I have finally figured out how to connect the front-end to the back-end </p>
+                        </div>
+                        <!-- <div class="post-comments">
+                              <ul class="comments-list">
+                                    <li class="comment">Comment 1</li>
+                                    <li class="comment">Comment 2</li>
+                                    <li class="comment">Comment 3</li>
+                              </ul>
+                        </div> -->
+                  </div>
+                  <!-- More post items can be added here -->
+            </div>
       </div>
-
-      <div class="profile-body">
-            <div class="side-bar">
-
-            </div>
-            <div class="feed-posts">
-                  
-            </div>
-      </div>
+          
+      
 
 </body>
 </html>

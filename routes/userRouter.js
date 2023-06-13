@@ -32,7 +32,7 @@ Router.post('/', controller.createUser)
 Router.delete('/:id', controller.deleteUser)
 
 
-Router.get('/login/', controller.loginController)
+Router.post('/login/', controller.loginController)
 
 
 

@@ -39,6 +39,10 @@ const userSchema = new Schema(
               type: Array,
               default: [],
             },
+            signedIn: {
+              type: Boolean,
+              default: false,
+            },
             isAdmin: {
               type: Boolean,
               default: false,

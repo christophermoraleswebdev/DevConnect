@@ -134,33 +134,25 @@ const deleteUser = async (req, res) => {
 
 // Login 
 const loginController = async (req, res) => {
-  const { email, password } = req.body
-
   try {
-    // Check if the user exists
-    const user = await User.findOne({ email })
+     const { email, password } = req.body
 
-    if (!user) {
-      // User not found
-      return res.status(401).json({ error: 'Invalid email or password' })
-    }
+     // Check if the user exists 
+     const user = await User.findOne({ email })
 
-    // Verify the password
-    const isPasswordValid = await user.comparePassword(password)
+     if (!user || user.password !== password) {
+        return res.status(401).json({ message: "Invalid email or password" })
+     }
 
-    if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid email or password' })
-    }
+     // Update the user's signedIn status to true
+     user.signedIn = true
+     await user.save()
+     // You can generate a token here and send it as a response if you want to implement authentication
 
-    const isLoggedIn = await User.findById(user.id)
-    isLoggedIn.isLoggedIn = true 
-
-    // User is authenticated, redirect to their profile
-    return res.status(200).json({ message: 'Login successful', user })
-  } catch (error) {
-    // Error
-    console.error(error)
-    return res.status(500).json({ error: 'An error occurred' })
+     res.status(200).json({ message: "Login successful" })
+  } catch (err) {
+     console.error(err)
+     res.status(500).json({ message: "Internal server error" })
   }
 }
 
