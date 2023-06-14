@@ -144,6 +144,16 @@ input, button {
       display: block;
       margin: 0 auto;
 }
+#post-new-account {
+      color: white;
+      background-color: #36A420;
+      width: 180px;
+      padding: 10px;
+}
+#post-new-account:hover {
+      opacity: .9;
+      cursor: pointer
+}
 
 /* Media Queries */
 @media (max-width: 770px) {
@@ -315,4 +325,6 @@ input, button {
       margin: 10px;
 }
     
-    
+.hidden {
+      display: none;
+}

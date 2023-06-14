@@ -14,7 +14,7 @@ Router.get('/name/:name', controller.findUserByName)
 Router.put('/:id', controller.updateUser)
 
 
-Router.post('/', controller.createUser)
+Router.post('/create', controller.createUser)
 // Create User Request Payload
 // {
 //   "username": "newuser",
@@ -32,7 +32,9 @@ Router.post('/', controller.createUser)
 Router.delete('/:id', controller.deleteUser)
 
 
-Router.post('/login/', controller.loginController)
+Router.post('/login', controller.loginController)
+
+Router.post('/logout', controller.signOutController)
 
 
 

@@ -5,6 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="style.css">
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src="https://kit.fontawesome.com/b8d3962bdb.js" crossorigin="anonymous"></script>
       <script src="script.js" defer></script>
       <title>DevConnect</title>
@@ -15,21 +16,21 @@
       </div>
       <ul class="navbar-menu">
             <li class="navbar-item">
-            <a href="#">Home</a>
+                  <a href="#">Home</a>
             </li>
             <li class="navbar-item">
-            <a href="#">Profile</a>
+                  <a href="#">Profile</a>
             </li>
             <li class="navbar-item">
-            <a href="#">Friends</a>
+                  <a href="#">Friends</a>
             </li>
             <li class="navbar-item">
-            <a href="#" id="signOutButton">Sign-out</a>
+                  <a href="#" id="signOutButton">Sign-out</a>
             </li>
             <!-- Add more menu items as needed -->
       </ul>
 </nav>
-    
+
 <body>
       <div class="container">
             <div class="sidebar">
@@ -47,8 +48,8 @@
                   </div>
                   <div class="buttons">
                         <button class="add-image-button">
-                            <i class="fa-regular fa-image"></i>
-                            <span class="button-text">Add Image</span>
+                              <i class="fa-regular fa-image"></i>
+                              <span class="button-text">Add Image</span>
                         </button>
                         <button class="post-button">Post</button>
                   </div>                    
@@ -76,8 +77,12 @@
                   <!-- More post items can be added here -->
             </div>
       </div>
-          
       
-
+      
+      
+      <div id="create-account" class="hidden"></div>
+      <div id="loginForm" class="hidden"></div>
+      <div id="signOutButton" class="hidden"></div>
+      <div id="createAccountForm" class="hidden"></div>
 </body>
 </html>

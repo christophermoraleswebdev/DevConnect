@@ -41,6 +41,7 @@ const findUserByName = async (req, res) => {
 
 
 // Create New User
+// Create New User
 const createUser = async (req, res) => {
   try {
     const { username, email, password, profilePicture, isAdmin, description, city } = req.body
@@ -49,10 +50,10 @@ const createUser = async (req, res) => {
     // Check If Username or Email Exist
     const existingUser = await User.findOne({ $or: [{ username }, { email }] })
     if (existingUser) {
-      return res.status(400).json({ message: 'Username or email already exists' })
+      return res.status(400).json({ message: "Username or email already exists" })
     }
 
-    // Create a New User 
+    // Create a New User
     const newUser = new User({
       username,
       email,
@@ -71,9 +72,10 @@ const createUser = async (req, res) => {
     res.status(201).json(savedUser)
   } catch (error) {
     // Handle Errors
-    res.status(500).json({ message: 'Internal server error' })
+    res.status(500).json({ message: "Internal server error" })
   }
 }
+
 
 
 // Update User
@@ -147,7 +149,7 @@ const loginController = async (req, res) => {
      // Update the user's signedIn status to true
      user.signedIn = true
      await user.save()
-     // You can generate a token here and send it as a response if you want to implement authentication
+     
 
      res.status(200).json({ message: "Login successful" })
   } catch (err) {
@@ -155,6 +157,29 @@ const loginController = async (req, res) => {
      res.status(500).json({ message: "Internal server error" })
   }
 }
+
+// Sign-out 
+const signOutController = async (req, res) => {
+  console.log('working')
+  try {
+
+
+    const { email } = req.body
+ 
+    const user = await User.findOneAndUpdate({ email: email }, { signedIn: false })
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    res.sendStatus(200) 
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: 'Internal server error' })
+  }
+}
+
+
 
 
 module.exports = {
@@ -164,5 +189,6 @@ module.exports = {
     createUser,  
     updateUser,
     deleteUser,
-    loginController 
+    loginController, 
+    signOutController
 }

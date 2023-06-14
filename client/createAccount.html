@@ -5,6 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="style.css">
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src="script.js" defer></script>
       <title>DevConnect</title>
 </head>
@@ -17,7 +18,7 @@
       </div>
       <!-- Login -->
       <div class="create-form">
-            <form>
+            <form id="createAccountForm">
                   <h1>Create Your Account</h1>
                   <input type="text" id="name" name="name" required placeholder="Name"><br>
                   <input type="text" id="username" name="username" required placeholder="Username"><br>
@@ -25,8 +26,11 @@
                   <input type="password" id="password" name="password" required placeholder="Password"><br>
                   <input type="text" id="city" name="city" placeholder="City"><br>
                   <textarea id="description" name="description" placeholder="Brief description of yourself..."></textarea><br>
-                  <button id="create-account" type="submit">Create Account</button>
+                  <button id="post-new-account" type="submit">Create Account</button>
             </form>   
-        </div>        
+            </div>   
+            <div id="create-account" class="hidden"></div>
+            <div id="loginForm" class="hidden"></div>
+            <div id="signOutButton" class="hidden"></div>     
 </body>
 </html>
