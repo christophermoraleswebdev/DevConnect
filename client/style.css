@@ -239,14 +239,20 @@ input, button {
 .find-friends {
       margin-bottom: 20px;
 }
-    
+
 .search-bar {
-      width: 150px;
-      height: 10px;
+      width: 95%;
+      height: 20px;
       padding: 5px;
       font-size: 15px;
 }
-    
+
+.searchButton {
+      width: 95%;
+      background-color: #3b5998;
+      color: white;
+      height: 40px;
+}
 .post {
       margin-bottom: 20px;
 }

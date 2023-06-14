@@ -27,7 +27,6 @@
             <li class="navbar-item">
                   <a href="#" id="signOutButton">Sign-out</a>
             </li>
-            <!-- Add more menu items as needed -->
       </ul>
 </nav>
 
@@ -39,9 +38,10 @@
                         <span class="profile-name">Update User Profile</span>
                   </div>
                   <div class="find-friends">
-                        <i class="fa-solid fa-magnifying-glass" style="color: #3b5998;"></i>
-                        <input type="text" placeholder="Find Friends" class="search-bar">
+                        <input id="searchInput" type="text" placeholder="Find a Friend" class="search-bar">
+                        <button id="searchButton" class="searchButton">Search</button>
                   </div>
+                  <div class="findFriends"></div>
                   <div class="post">
                         <span>Make a Post:</span>
                         <textarea name="post" id="" cols="30" rows="10"></textarea>

@@ -40,7 +40,7 @@ const findUserByName = async (req, res) => {
 }
 
 
-// Create New User
+
 // Create New User
 const createUser = async (req, res) => {
   try {
@@ -62,7 +62,7 @@ const createUser = async (req, res) => {
       profilePicture,
       isAdmin,
       description,
-      city
+      city,
     })
 
     // Save User
