@@ -116,13 +116,15 @@ document.querySelector('.post-button').addEventListener('click', async () => {
    const description = postTextArea.value
    console.log(description)
    try {
-      const response = await axios.post('http://localhost:3001/api/post', { description })
+      const response = await axios.post('http://localhost:3001/api/post')
       console.log(response)
+      
+
    } catch (error) {
       console.error(error)
       console.log('An error occurred. Please try again later.')
    }
-})
+ })
  
  
 

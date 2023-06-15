@@ -17,8 +17,6 @@ Router.post('/', controller.createPost)
 //       "img": "https://example.com/image3.jpg"
 // }
 
-
-
 // http://localhost:3001/api/post/6487669d8a9b780310ac3efd --> use the post ID
 Router.put('/:id', controller.updatePost)
 
