@@ -1,7 +1,6 @@
 const { User } = require('../models')
 
 
-
 // Find All Users 
 const allUsers = async (req, res) => {
   try{
@@ -27,10 +26,12 @@ const findUserById = async (req, res) => {
   }
 }
 
+// Find User By Name 
 const findUserByName = async (req, res) => {
   try {
-    const name = req.params.name.replace(' ', '%20')
-    const user = await User.find({ name: req.params.name })
+    const name = req.params.name
+    const regex = new RegExp(name, 'i') // 'i' flag makes the search case-insensitive
+    const user = await User.find({ name: regex })
     if (!user) throw Error('User not found')
     res.status(200).json(user)
   } catch (e) {
@@ -38,8 +39,6 @@ const findUserByName = async (req, res) => {
     res.status(500).send('User not found')
   }
 }
-
-
 
 // Create New User
 const createUser = async (req, res) => {
@@ -76,8 +75,6 @@ const createUser = async (req, res) => {
   }
 }
 
-
-
 // Update User
 const updateUser = async (req, res) => {
       const { username, email, password, profilePicture, description, city } = req.body
@@ -112,27 +109,26 @@ const updateUser = async (req, res) => {
 // Delete User 
 const deleteUser = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params
 
-    console.log('User ID:', id);
+    console.log('User ID:', id)
 
     // Delete By Id
-    const deletedUser = await User.findByIdAndRemove(id);
+    const deletedUser = await User.findByIdAndRemove(id)
 
-    console.log('Deleted User:', deletedUser);
+    console.log('Deleted User:', deletedUser)
 
     if (!deletedUser) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: 'User not found' })
     }
 
-    res.status(200).json({ message: 'User deleted successfully' });
+    res.status(200).json({ message: 'User deleted successfully' })
   } catch (error) {
     // Handle Errors
-    console.log('Error:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    console.log('Error:', error)
+    res.status(500).json({ message: 'Internal server error' })
   }
-};
-
+}
 
 // Login 
 const loginController = async (req, res) => {

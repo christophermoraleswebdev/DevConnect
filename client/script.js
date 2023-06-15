@@ -3,7 +3,7 @@ const signOutButton = document.getElementById("signOutButton")
 const createAccountButton = document.getElementById('create-account')
 const createAccountForm = document.getElementById("createAccountForm")
 const searchButton = document.getElementById("searchButton")
-const searchInput = document.querySelector("#searchInput").value
+
 
 
 
@@ -87,12 +87,16 @@ searchButton.addEventListener("click", async () => {
    if (response.status === 200) {
       const user = response.data
       console.log(user)
+
+      // Clear previous content in findFriends div
+      const findFriends = document.getElementById('findFriends')
+      findFriends.innerHTML = ''
+
       // Populate user's name and profile picture
-      const findFriends = document.getElementById('findFriends') //its a 'div'
       const profileImageElement = document.createElement('img')
       profileImageElement.classList.add('friendsImage')
       const usernameElement = document.createElement('span')
-      console.log(findFriends)
+
       profileImageElement.src = user[0].profilePicture
       usernameElement.textContent = user[0].name
       findFriends.appendChild(profileImageElement)
@@ -102,13 +106,16 @@ searchButton.addEventListener("click", async () => {
       const suggestionsResponse = await axios.get("http://localhost:3001/api/user")
       if (suggestionsResponse.status === 200) {
          const users = suggestionsResponse.data
+         
          // Populate users to befriend
          const suggestionsContainer = document.getElementById("suggestionsContainer")
-         suggestionsContainer.innerHTML = "" // Clear previous suggestions
+         suggestionsContainer.innerHTML = "" 
+
+         // Clear previous suggestions
          users.forEach((user) => {
-         const suggestion = document.createElement("div")
-         suggestion.textContent = user.name
-         suggestionsContainer.appendChild(suggestion)
+            const suggestion = document.createElement("div")
+            suggestion.textContent = user.name
+            suggestionsContainer.appendChild(suggestion)
       })
     }
   }
