@@ -90,13 +90,13 @@ searchButton.addEventListener("click", async () => {
       // Populate user's name and profile picture
       const findFriends = document.getElementById('findFriends') //its a 'div'
       const profileImageElement = document.createElement('img')
+      profileImageElement.classList.add('friendsImage')
       const usernameElement = document.createElement('span')
-      profileImageElement.src = user.profilePicture
-      usernameElement.textContent = user.name
+      console.log(findFriends)
+      profileImageElement.src = user[0].profilePicture
+      usernameElement.textContent = user[0].name
       findFriends.appendChild(profileImageElement)
       findFriends.appendChild(usernameElement)
-      // document.getElementById("userName").textContent = user.name
-      // document.getElementById("userProfilePicture").src = user.profilePicture
    } else {
       // No user found, display suggestions
       const suggestionsResponse = await axios.get("http://localhost:3001/api/user")
