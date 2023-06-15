@@ -7,7 +7,7 @@ Router.get('/', controller.getAllPosts)
 // http://localhost:3001/api/post/6487669d8a9b780310ac3efd
 Router.get('/:id', controller.getPostsByUserId)
 
-// http://localhost:3001/api/post
+// http://localhost:3001/api/post/create
 Router.post('/', controller.createPost)
 // Create Post Request Payload
 // {

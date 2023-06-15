@@ -24,6 +24,7 @@ const getPostsByUserId = async (req, res) => {
 // Create a new post
 const createPost = async (req, res) => {
   const { user, description, img } = req.body
+  console.log(req.body)
   try {
     const post = new Post({ user, description, img })
     await post.save()

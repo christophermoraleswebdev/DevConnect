@@ -79,49 +79,52 @@ createAccountForm.addEventListener("submit", async (e) => {
 
 // Search Button
 searchButton.addEventListener("click", async () => {
-   const searchInput = document.getElementById("searchInput").value
-   console.log(searchInput)
+      const searchInput = document.getElementById("searchInput").value
+      console.log(searchInput)
+      const response = await axios.get(`http://localhost:3001/api/user/name/${searchInput}`)
    
-   const response = await axios.get(`http://localhost:3001/api/user/name/${searchInput}`)
+      if (response.status === 200) {
+         const user = response.data
+         console.log(user)
+      
+         const findFriends = document.getElementById('findFriends')
+         findFriends.innerHTML = ''
+   
+      if (user && user.length > 0) {
+            const profileImageElement = document.createElement('img')
+            profileImageElement.classList.add('friendsImage')
+            const usernameElement = document.createElement('span')
+      
+            profileImageElement.src = user[0].profilePicture || ''
+            usernameElement.textContent = user[0].name || ''
+      
+            findFriends.appendChild(profileImageElement)
+            findFriends.appendChild(usernameElement)
+      } else {
+            findFriends.innerHTML = 'USER NOT FOUND'
+      }
+      } else {
+             findFriends.innerHTML = 'Error occurred while searching for user.'
+      }
+ })
+ 
 
-   if (response.status === 200) {
-      const user = response.data
-      console.log(user)
-
-      // Clear previous content in findFriends div
-      const findFriends = document.getElementById('findFriends')
-      findFriends.innerHTML = ''
-
-      // Populate user's name and profile picture
-      const profileImageElement = document.createElement('img')
-      profileImageElement.classList.add('friendsImage')
-      const usernameElement = document.createElement('span')
-
-      profileImageElement.src = user[0].profilePicture
-      usernameElement.textContent = user[0].name
-      findFriends.appendChild(profileImageElement)
-      findFriends.appendChild(usernameElement)
-   } else {
-      // No user found, display suggestions
-      const suggestionsResponse = await axios.get("http://localhost:3001/api/user")
-      if (suggestionsResponse.status === 200) {
-         const users = suggestionsResponse.data
-         
-         // Populate users to befriend
-         const suggestionsContainer = document.getElementById("suggestionsContainer")
-         suggestionsContainer.innerHTML = "" 
-
-         // Clear previous suggestions
-         users.forEach((user) => {
-            const suggestion = document.createElement("div")
-            suggestion.textContent = user.name
-            suggestionsContainer.appendChild(suggestion)
-      })
-    }
-  }
+// Make a Post
+document.querySelector('.post-button').addEventListener('click', async () => {
+   console.log('working')
+   const postTextArea = document.getElementById('postTextArea')
+   const description = postTextArea.value
+   console.log(description)
+   try {
+      const response = await axios.post('http://localhost:3001/api/post', { description })
+      console.log(response)
+   } catch (error) {
+      console.error(error)
+      console.log('An error occurred. Please try again later.')
+   }
 })
-
-
+ 
+ 
 
 
 // Sign Out Functionality

@@ -263,6 +263,11 @@ input, button {
       height: 40px;
 }
 
+.searchButton:hover {
+      opacity: .8;
+      cursor: pointer;
+}
+
 .friendsImage {
       width: 40px;
       height: 40px;
@@ -282,6 +287,11 @@ input, button {
       background-color: #3b5998;
       color: white;
       height: 40px;
+}
+
+.buttons button:hover {
+      opacity: .9;
+      cursor: pointer;
 }
     
 .feed {
