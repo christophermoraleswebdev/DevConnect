@@ -1,7 +1,9 @@
 ![DevConnect](https://images.unsplash.com/photo-1579869847557-1f67382cc158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1034&q=80)
 
 # DevConnect
-DevConnect is a vibrant online community designed exclusively for developers. It's a place where web developers can mingle, socialize, and connect with like-minded individuals who share their passion for coding. Whether you're a front-end wizard, a back-end maestro, or an all-around coding guru, DevConnect provides a welcoming platform for you to engage with fellow developers beyond the confines of your professional careers.
+I created a simple social media login page to demonstrate my proficiency in backend CRUD operations and showcase a visually appealing user interface. 
+I've incorporated a seamless user experience within the application by implementing a user login functionality. This enables existing users to access their accounts while allowing new users to effortlessly create new accounts. Once logged in, users can conveniently log out, which automatically redirects them to the login page for a streamlined navigation experience.
+
 
 <h3 align="left">Features:</h3> 
 -Users who have a an account can login and access their account. 
