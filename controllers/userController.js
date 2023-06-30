@@ -43,7 +43,7 @@ const findUserByName = async (req, res) => {
 // Create New User
 const createUser = async (req, res) => {
   try {
-    const { username, email, password, profilePicture, isAdmin, description, city } = req.body
+    const { username, email, password, profilePicture, isAdmin, description, city} = req.body
     const name = req.body.name
 
     // Check If Username or Email Exist
